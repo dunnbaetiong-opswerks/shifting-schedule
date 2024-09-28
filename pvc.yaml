@@ -8,7 +8,7 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: /path/to/shifting-schedule  # Update this path to your local repository path
+    path: ~/shifting-schedule  # Update this path to your local repository path
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
