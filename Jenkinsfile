@@ -19,8 +19,14 @@ pipeline {
         }*/
         stage('Add') {
             steps {
-                sh 'sudo usermod -aG docker jenkins'
-                sudo 'systemctl restart jenkins'
+                script {
+                    // Use sudo to run usermod if necessary
+                    // Example: Add a user to a group
+                    sh 'sudo usermod -aG mygroup myuser'
+                    
+                    // Example: Change the user's home directory
+                    sh 'sudo usermod -d /new/home/dir myuser'
+                }
             }
         }
         
