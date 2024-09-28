@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shifting-schedule-pod
+spec:
+  containers:
+    - name: shifting-schedule-container
+      image: your-image  # Replace with the image you want to use
+      volumeMounts:
+        - mountPath: /mnt/data  # Where you want to access the data in the pod
+          name: shifting-schedule-storage
+  volumes:
+    - name: shifting-schedule-storage
+      persistentVolumeClaim:
+        claimName: shifting-schedule-pvc
