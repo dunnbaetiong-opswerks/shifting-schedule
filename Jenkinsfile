@@ -19,8 +19,8 @@ pipeline {
         }*/
         stage('Add') {
             steps {
-                sudo usermod -aG docker jenkins
-                sudo systemctl restart jenkins
+                sh 'sudo usermod -aG docker jenkins'
+                sudo 'systemctl restart jenkins'
             }
         }
         
