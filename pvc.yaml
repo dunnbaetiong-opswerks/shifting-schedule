@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: shifting-schedule-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: /path/to/shifting-schedule  # Update this path to your local repository path
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: shifting-schedule-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
