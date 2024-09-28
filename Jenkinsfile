@@ -17,18 +17,7 @@ pipeline {
                 '''
             }
         }*/
-        stage('Add') {
-            steps {
-                script {
-                    // Use sudo to run usermod if necessary
-                    // Example: Add a user to a group
-                    sh 'sudo usermod -aG mygroup myuser'
-                    
-                    // Example: Change the user's home directory
-                    sh 'sudo usermod -d /new/home/dir myuser'
-                }
-            }
-        }
+       
         
         stage('Build') {
             steps {
