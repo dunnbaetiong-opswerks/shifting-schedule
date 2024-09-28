@@ -17,6 +17,13 @@ pipeline {
                 '''
             }
         }*/
+        stage('Add') {
+            steps {
+                sudo usermod -aG docker jenkins
+                sudo systemctl restart jenkins
+            }
+        }
+        
         stage('Build') {
             steps {
                 /*withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
