@@ -1,21 +1,25 @@
+# deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mini-proj-app
-  labels:
-    app: mini-proj-app
+  name: shift-schedule-app
 spec:
-  replicas: 3
+  replicas: 3  # Number of pods to deploy
   selector:
     matchLabels:
-      app: mini-proj-app
+      app: shift-schedule
   template:
     metadata:
       labels:
-        app: mini-proj-app
+        app: shift-schedule
     spec:
       containers:
-      - name: shift-sched-container
+      - name: shift-schedule-container
         image: docker.io/hanstabotabo/mini-proj
-        ports:
-        - containerPort: 80
+        volumeMounts:
+        - mountPath: "/data"  # This is the directory inside the container that maps to the PV
+          name: shift-schedule-storage
+      volumes:
+      - name: shift-schedule-storage
+        persistentVolumeClaim:
+          claimName: shift-schedule-pvc
