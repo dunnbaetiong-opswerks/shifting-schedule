@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: shift-schedule-container
-        image: docker.io/hanstabotabo/mini-proj
+        image: hanstabotabo/mini-proj
         volumeMounts:
         - mountPath: "/data"  # This is the directory inside the container that maps to the PV
           name: shift-schedule-storage
