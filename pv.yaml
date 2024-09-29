@@ -1,0 +1,13 @@
+# pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: shift-schedule-pv
+spec:
+  capacity:
+    storage: 1Gi  # Adjust storage size as needed
+  accessModes:
+    - ReadWriteMany  # Allows multiple pods to read and write
+  hostPath:  # This is a simple example using hostPath for demo purposes (local storage)
+    path: /mnt/data  # Adjust the path as necessary on your nodes
+    type: DirectoryOrCreate
